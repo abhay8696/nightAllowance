@@ -23,7 +23,7 @@ const Formula = () => {
                 <Paper>
                     <div className={classes.insidePaper}>
                         <span className={classes.title}>Formula</span>
-                        <span>Dearness Allowance(DA) = 0.34</span>
+                        <span>Dearness Allowance(DA) = 0.38</span>
                         <span>Pay Rate = (Basic + (Basic * DA))/200</span>
                         <span>Weightage = Daily Hours * 10</span>
                         <span>Total Allowance = Pay Rate * ((Weightage * No. Of Nights) / 60) </span>

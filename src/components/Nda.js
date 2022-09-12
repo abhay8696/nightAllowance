@@ -46,7 +46,7 @@ const Nda = () => {
         window.localStorage.setItem("result", data.totalAllowance)
     },
     ndaData = (basic, numOfNights, dailyHours)=> {
-        let payRate = (basic + (basic * 0.34))/200;
+        let payRate = (basic + (basic * 0.38))/200;
         let weightage = dailyHours * 10;
         let totalAllowance = (Math.round(payRate * ((weightage * numOfNights) / 60) * 100) / 100).toFixed(2);
         return {payRate, totalAllowance}
