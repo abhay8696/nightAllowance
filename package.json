@@ -1,6 +1,6 @@
 {
-  "name": "client",
   "homepage": "https://abhay8696.github.io/nightAllowance",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
