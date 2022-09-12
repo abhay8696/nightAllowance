@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/nightAllowance/static/css/main.e15dae3c.css",
-    "main.js": "/nightAllowance/static/js/main.af20f3a2.js",
+    "main.js": "/nightAllowance/static/js/main.f42281c6.js",
     "static/js/787.c4e7f8f9.chunk.js": "/nightAllowance/static/js/787.c4e7f8f9.chunk.js",
     "index.html": "/nightAllowance/index.html",
     "main.e15dae3c.css.map": "/nightAllowance/static/css/main.e15dae3c.css.map",
-    "main.af20f3a2.js.map": "/nightAllowance/static/js/main.af20f3a2.js.map",
+    "main.f42281c6.js.map": "/nightAllowance/static/js/main.f42281c6.js.map",
     "787.c4e7f8f9.chunk.js.map": "/nightAllowance/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e15dae3c.css",
-    "static/js/main.af20f3a2.js"
+    "static/js/main.f42281c6.js"
   ]
 }
