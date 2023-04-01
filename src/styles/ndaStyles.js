@@ -24,6 +24,7 @@ const ndaStyles = createUseStyles({
     },
     form:{
         display: 'flex',
+        padding: '1rem 0',
         flexDirection: 'column',
         alignItems: 'center',
         color: 'white',
@@ -73,7 +74,7 @@ const ndaStyles = createUseStyles({
         borderRadius: '5px',
     },
     footer:{
-        position: 'absolute',
+        position: 'fixed',
         bottom: '0.5rem',
         right: '0.5rem',
         fontSize: '0.8rem',
@@ -107,6 +108,41 @@ const ndaStyles = createUseStyles({
                 color: '#282c34'
             },
         },
+    },
+    //small height phones
+    '@media only screen and (max-height: 660px)': {
+        // resultDiv: {
+        //     backgroundColor: 'red',
+        // },
+        result: {
+            fontSize: '2.5rem',
+        },
+        nda:{
+            '& h1':{
+                fontSize: '28px',
+                margin: '0.8rem 0'
+            }
+        }
+    },
+    //small height phones
+    '@media only screen and (max-height: 610px)': {
+        // resultDiv: {
+        //     backgroundColor: 'red',
+        // },
+        result: {
+            fontSize: '2.4rem',
+        },
+        nda:{
+            '& h1':{
+                fontSize: '24px',
+                margin: '0.6rem 0'
+            }
+        },
+        form:{
+            '& input': {
+                marginBottom: '0.5rem',
+            }
+        }
     },
     //pc
     '@media only screen and (min-width: 768px)': {

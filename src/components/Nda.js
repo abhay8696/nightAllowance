@@ -21,11 +21,14 @@ const Nda = () => {
     [ am_pm, setAm_pm ] = useState('12 AM - 08 AM'),
     [ noOfDuties, setNoOfDuties ] = useState(4),
     [ result, setResult ] = useState(705),
-    [ footer, setFooter ] = useState(false)
+    [ footer, setFooter ] = useState(false),
+    [ DA, setDA ] = useState(42)
 
     //functions
     const
     submitForm = evt=> {
+        evt.preventDefault();
+        console.log("submittttttt")
         let hours, nightt;
         if(timing === "16-00"){
             hours = 2
@@ -37,7 +40,7 @@ const Nda = () => {
             hours = 6;
         }
         // nightt = new ndaData(basic, noOfDuties, hours)
-        let data = ndaData(basic, noOfDuties, hours)
+        let data = ndaData(basic, noOfDuties, hours, DA)
         console.log(data.totalAllowance);
         setResult(Number(data.totalAllowance));
         window.localStorage.setItem("basic", basic)
@@ -45,9 +48,8 @@ const Nda = () => {
         window.localStorage.setItem("timing", timing)
         window.localStorage.setItem("result", data.totalAllowance)
     },
-    ndaData = (basic, numOfNights, dailyHours)=> {
-        let dearnessAllowance = 0.42;
-        let payRate = (basic + (basic * dearnessAllowance))/200;
+    ndaData = (basic, numOfNights, dailyHours, dearnessAllowance)=> {
+        let payRate = (basic + (basic * dearnessAllowance/100))/200;
         let weightage = dailyHours * 10;
         let totalAllowance = (Math.round(payRate * ((weightage * numOfNights) / 60) * 100) / 100).toFixed(2);
         return {payRate, totalAllowance}
@@ -102,8 +104,8 @@ const Nda = () => {
                 }
                 </h2>
             </div>
-            <div className={classes.form}>
-                <label for='basic' className={classes.lables}>Basic Salary</label>
+            <form className={classes.form}  onSubmit={evt=> submitForm(evt)}>
+                <label for='basic' className={classes.lables}>Basic Pay</label>
                 <input 
                     value={basic} 
                     id="basic" 
@@ -127,7 +129,7 @@ const Nda = () => {
                     <MenuItem value={'23-07'}>23-07</MenuItem>
                     <MenuItem value={'00-08'}>00-08</MenuItem>
                 </Select>
-                <label className={classes.lables} for='noOfDuties'>No Of {am_pm} Duties In Month</label>
+                <label className={classes.lables} for='noOfDuties'>No Of {am_pm} Duties In a Month</label>
                 <input 
                     value={noOfDuties} 
                     id="noOfDuties" 
@@ -137,10 +139,20 @@ const Nda = () => {
                     required
                     className={classes.noOfDuties}
                 />
-                <span onClick={evt=> submitForm(evt)} className={classes.submitButton}>
+                <label className={classes.lables} for='da'>Dearness Allowance</label>
+                <input 
+                    value={DA} 
+                    id="da" 
+                    variant="outlined" 
+                    type="number"
+                    onChange={evt=> setDA(Number(evt.target.value))}
+                    required
+                    className={classes.noOfDuties}
+                />
+                <button className={classes.submitButton}>
                     <span>Calculate</span>
-                </span>
-            </div>
+                </button>
+            </form>
             {
                 footer  ?
                 <div className={classes.footer} onClick={()=> setFooter(false)}>Created By {'<abhay_kamble/>'}</div>
